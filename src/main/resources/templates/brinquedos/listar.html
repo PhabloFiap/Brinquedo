@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+  <title>Lista de Brinquedos</title>
+</head>
+<body>
+<h1>Lista de Brinquedos Cadastrados</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Nome</th>
+    <th>tamanho</th>
+    <th>Preço</th>
+    <th>Classificação</th>
+  </tr>
+  </thead>
+  <tbody>
+  <!-- Itera sobre a lista de brinquedos -->
+  <tr th:each="brinquedo : ${brinquedos}">
+    <td th:text="${brinquedo.id}"></td>
+    <td th:text="${brinquedo.nome}"></td>
+    <td th:text="${brinquedo.tamanho}"></td>
+    <td th:text="${brinquedo.preco}"></td>
+    <td th:text="${brinquedo.classificacao}"></td>
+  </tr>
+  </tbody>
+</table>
+
+<a href="/brinquedos/cadastrar">Cadastrar novo brinquedo</a>
+</body>
+</html>

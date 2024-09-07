@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+  <meta charset="UTF-8">
+  <title>Cadastro de Brinquedo</title>
+</head>
+<body>
+
+<h1>Cadastro de Brinquedo</h1>
+
+
+<form action="/brinquedos/cadastrar" method="post">
+  <label for="nome">Nome</label>
+  <input type="text" id="nome" name="nome">
+  <label for="preco">Preço</label>
+  <input type="number" id="preco" name="preco">
+  <label for="classificacao">Classificação</label>
+  <input type="text" id="classificacao" name="classificacao">
+  <label for="tamanho">Tamanho</label>
+  <input type="text" id="tamanho" name="tamanho">
+  <button type="submit">Cadastrar</button>
+
+  <p th:text="${nome}"></p>
+  <p th:text="${preco}"></p>
+  <p th:text="${classificacao}"></p>
+  <p th:text="${tamanho}"></p>
+</form>
+
+</body>
+</html>

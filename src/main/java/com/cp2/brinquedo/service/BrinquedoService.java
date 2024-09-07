@@ -28,4 +28,14 @@ private BrinquedoRepository brinquedoRepository;
 
     }
 
+    public List <Brinquedo> update (Brinquedo brinquedo){
+        brinquedoRepository.save(brinquedo);
+        return list();
+    }
+
+    public List<Brinquedo> delete(Long id){
+        brinquedoRepository.deleteById(id);
+        return list();
+    }
+
 }
