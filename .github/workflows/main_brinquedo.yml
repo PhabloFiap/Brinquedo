@@ -22,9 +22,6 @@ jobs:
       - name: Build with Maven
         run: mvn clean install
 
-      - name: List files in target directory
-        run: ls -R ${GITHUB_WORKSPACE}/target
-
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
@@ -59,4 +56,4 @@ jobs:
         with:
           app-name: 'brinquedo'
           slot-name: '' # Remover o slot caso não utilize
-          package: '${{ github.workspace }}/target/*.jar'
+          package: 'java-app/*.jar'  # Usar o nome do artefato baixado
