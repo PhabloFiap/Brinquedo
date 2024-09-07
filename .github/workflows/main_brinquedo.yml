@@ -42,18 +42,12 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: java-app
-      
+
+      # Adiciona o comando para listar os arquivos após o download
+      - name: List files after download
+        run: ls -la java-app/
+
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_81EDA2FFC5304C3E997DAB7E8DA9EBDE }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_70567F31CB204CCC97CB041BEF9AFC57 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_9503BF8C15444C65A455B816D585C53B }}
-
-      - name: Deploy to Azure Web App
-        id: deploy-to-webapp
-        uses: azure/webapps-deploy@v3
-        with:
-          app-name: 'brinquedo'
-          slot-name: '' # Remover o slot caso não utilize
-          package: 'java-app/*.jar'  # Usar o nome do artefato baixado
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_81EDA
