@@ -5,9 +5,9 @@ name: Build and deploy JAR app to Azure Web App - brinquedo
 
 on:
   push:
-    branches:
-      - main
-  workflow_dispatch:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build:
@@ -44,7 +44,13 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
+        - name: Go to project root folder
+      run: cd Brinquedo # Use o nome da pasta raiz do seu projeto se necessário
+
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
           name: java-app
+          
       
       - name: Login to Azure
         uses: azure/login@v2
